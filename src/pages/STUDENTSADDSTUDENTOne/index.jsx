@@ -1,0 +1,606 @@
+import React from "react";
+
+import { Menu, MenuItem, Sidebar, SubMenu } from "react-pro-sidebar";
+import { useNavigate } from "react-router-dom";
+
+import { Button, Img, Input, Line, Text } from "components";
+
+const STUDENTSADDSTUDENTOnePage = () => {
+  const navigate = useNavigate();
+
+  const sideBarMenu = [
+    {
+      icon: (
+        <Img
+          className="h-6 w-6"
+          src="images/img_arrowright.svg"
+          alt="arrowright"
+        />
+      ),
+      label: "All Students",
+      href: "/studentsallstudents",
+      active: window.location.pathname === "/studentsallstudents",
+    },
+    {
+      icon: (
+        <Img
+          className="h-6 w-6"
+          src="images/img_arrowright.svg"
+          alt="arrowright_One"
+        />
+      ),
+      label: "Add Students",
+    },
+    {
+      icon: (
+        <Img
+          className="h-6 w-6"
+          src="images/img_arrowright.svg"
+          alt="arrowright_Two"
+        />
+      ),
+      label: "Students Promotion",
+    },
+    {
+      icon: (
+        <Img
+          className="h-[26px] w-[26px]"
+          src="images/img_people.svg"
+          alt="people"
+        />
+      ),
+      label: "Parents",
+    },
+    { label: <Line className="bg-indigo-900_01 h-[3px] w-full" /> },
+  ];
+
+  return (
+    <>
+      <div className="bg-blue_gray-50 flex flex-col font-poppins items-center justify-start mx-auto w-full">
+        <div className="flex md:flex-col flex-row md:gap-5 items-start justify-evenly w-full">
+          <Sidebar
+            className="!sticky !w-[286px] bg-cover bg-no-repeat flex h-screen md:hidden justify-start overflow-auto md:px-5 top-[0]"
+            style={{ backgroundImage: "url('images/img_frame11.svg')" }}
+          >
+            <div className="flex flex-row items-center justify-between ml-6 md:ml-[0] mr-2.5 mt-7 w-[89%]">
+              <Img
+                className="common-pointer h-[58px] md:h-auto object-cover"
+                src="images/img_whatsappimage20210604.png"
+                alt="whatsappimageTwenty"
+                onClick={() => navigate("/dashboard")}
+              />
+              <Img
+                className="h-[38px] w-[38px]"
+                src="images/img_thumbsup.svg"
+                alt="thumbsup"
+              />
+            </div>
+            <Menu
+              menuItemStyles={{
+                button: {
+                  padding: 0,
+                  paddingBottom: "68px",
+                  gap: "11px",
+                  paddingTop: "19px",
+                  color: "#ffffffcc",
+                  fontSize: "18px",
+                  paddingLeft: "19px",
+                  paddingRight: "19px",
+                  [`&:hover, &.ps-active`]: {
+                    color: "#ffffff",
+                    fontWeight: "600 !important",
+                    backgroundColor: "#14238aff !important",
+                  },
+                },
+              }}
+              renderExpandIcon={() => (
+                <Img
+                  className="h-6 w-6"
+                  src="images/img_arrowdown.svg"
+                  alt="arrowdown"
+                />
+              )}
+              className="flex flex-col items-center justify-end mb-[830px] mt-3 pt-[22px] w-full"
+            >
+              <div className="flex flex-col items-center justify-start w-full">
+                <MenuItem
+                  icon={
+                    <Img
+                      className="h-[26px] w-[26px]"
+                      src="images/img_avtimer.svg"
+                      alt="avtimer"
+                    />
+                  }
+                  active={window.location.pathname === "/dashboard"}
+                  href="/dashboard"
+                >
+                  <Text>Dashboard</Text>
+                </MenuItem>
+                <MenuItem>
+                  <div className="flex flex-row items-center justify-evenly">
+                    <Line className="bg-indigo-900_01 h-[3px] w-full" />
+                  </div>
+                </MenuItem>
+                <SubMenu
+                  icon={
+                    <Img
+                      className="h-[26px] w-[26px]"
+                      src="images/img_students1.svg"
+                      alt="studentsOne"
+                    />
+                  }
+                  label={<Text className="my-[3px]">Students</Text>}
+                >
+                  <MenuItem>
+                    <div className="sm:pl-5 pl-[3px] gap-[11px] flex justify-start items-center flex-row">
+                      Submenu Item
+                    </div>
+                  </MenuItem>
+                </SubMenu>
+              </div>
+              <Line className="bg-indigo-900_01 h-[3px] w-full" />
+              <div className="flex flex-col items-center justify-end mt-5 w-full">
+                {sideBarMenu?.map((menu, i) => (
+                  <MenuItem key={`sideBarMenuItem${i}`} {...menu}>
+                    {menu.label}
+                  </MenuItem>
+                ))}
+                <SubMenu
+                  icon={
+                    <Img
+                      className="h-[26px]"
+                      src="images/img_settings.svg"
+                      alt="settings"
+                    />
+                  }
+                  label={<Text className="my-[3px]">Teachers</Text>}
+                >
+                  <MenuItem>
+                    <div className="sm:pl-5 pl-[3px] gap-[11px] flex justify-start items-center flex-row">
+                      Submenu Item
+                    </div>
+                  </MenuItem>
+                </SubMenu>
+                <SubMenu
+                  label={<Line className="bg-indigo-900_01 h-[3px] w-full" />}
+                >
+                  <MenuItem>
+                    <div className="sm:pl-5 pl-[3px] gap-[11px] flex justify-start items-center flex-row">
+                      Submenu Item
+                    </div>
+                  </MenuItem>
+                </SubMenu>
+                <SubMenu
+                  icon={
+                    <Img
+                      className="h-[26px] w-[26px]"
+                      src="images/img_calculator.svg"
+                      alt="calculator"
+                    />
+                  }
+                  label={<Text className="my-[3px]">Account</Text>}
+                >
+                  <MenuItem>
+                    <div className="sm:pl-5 pl-[3px] gap-[11px] flex justify-start items-center flex-row">
+                      Submenu Item
+                    </div>
+                  </MenuItem>
+                </SubMenu>
+                <SubMenu
+                  label={<Line className="bg-indigo-900_01 h-[3px] w-full" />}
+                >
+                  <div className="flex flex-col items-center justify-end w-full">
+                    <MenuItem
+                      icon={
+                        <Img
+                          className="h-[26px] w-[26px]"
+                          src="images/img_openbook11.svg"
+                          alt="openbookEleven"
+                        />
+                      }
+                      active={window.location.pathname === "/subjects"}
+                      href="/subjects"
+                    >
+                      <Text className="my-0.5">Subject</Text>
+                    </MenuItem>
+                  </div>
+                </SubMenu>
+                <MenuItem>
+                  <div className="flex flex-row items-center justify-evenly">
+                    <Line className="bg-indigo-900_01 h-[3px] w-full" />
+                  </div>
+                </MenuItem>
+                <MenuItem
+                  icon={
+                    <Img
+                      className="h-[26px] w-[26px]"
+                      src="images/img_settings_white_a700_26x26.svg"
+                      alt="settings_One"
+                    />
+                  }
+                  active={window.location.pathname === "/settings"}
+                  href="/settings"
+                >
+                  <Text className="my-0.5">Settings</Text>
+                </MenuItem>
+                <MenuItem>
+                  <div className="flex flex-row items-center justify-evenly">
+                    <Line className="bg-indigo-900_01 h-[3px] w-full" />
+                  </div>
+                </MenuItem>
+              </div>
+            </Menu>
+          </Sidebar>
+          <div className="flex flex-1 flex-col gap-[51px] items-center justify-start md:px-5 w-full">
+            <div className="bg-white-A700 flex md:flex-col flex-row md:gap-5 items-center justify-end p-[25px] sm:px-5 shadow-bs1 w-full">
+              <Img
+                className="h-[43px] md:mt-0 my-[3px] w-[43px]"
+                src="images/img_search.svg"
+                alt="search"
+              />
+              <Text
+                className="md:ml-[0] ml-[9px] text-gray-500_cc text-lg"
+                size="txtPoppinsMedium18"
+              >
+                Search
+              </Text>
+              <Img
+                className="h-6 md:ml-[0] ml-[810px] w-6"
+                src="images/img_lock.svg"
+                alt="lock"
+              />
+              <Img
+                className="h-6 ml-3.5 md:ml-[0] w-6"
+                src="images/img_notificationsnone.svg"
+                alt="notificationsno"
+              />
+              <Line className="bg-red-A700 md:h-0.5 h-[25px] md:ml-[0] ml-[17px] md:mt-0 my-3 w-0.5 md:w-full" />
+              <div className="flex md:flex-1 flex-row items-center justify-center md:ml-[0] ml-[15px] md:mt-0 my-[3px] w-[7%] md:w-full">
+                <Img
+                  className="h-[43px] md:h-auto rounded-[50%] w-[43px]"
+                  src="images/img_ellipse10.png"
+                  alt="ellipseTen"
+                />
+                <Img
+                  className="h-6 w-6"
+                  src="images/img_arrowdropdown.svg"
+                  alt="arrowdropdown"
+                />
+              </div>
+            </div>
+            <div className="flex flex-col items-start justify-start w-[96%] md:w-full">
+              <Text
+                className="text-[22px] text-black-900 sm:text-lg md:text-xl"
+                size="txtPoppinsSemiBold22"
+              >
+                Students
+              </Text>
+              <Line className="bg-red-500 h-1 w-[5%]" />
+              <div className="flex flex-row items-start justify-start mt-2.5 w-[26%] md:w-full">
+                <Text
+                  className="text-gray-800 text-lg"
+                  size="txtPoppinsRegular18Gray800"
+                >
+                  Home
+                </Text>
+                <Img
+                  className="h-6 ml-[9px] mt-[3px] w-6"
+                  src="images/img_arrowright_red_a700.svg"
+                  alt="arrowright_Five"
+                />
+                <Text
+                  className="ml-2 text-lg text-red-A700"
+                  size="txtPoppinsMedium18RedA700"
+                >
+                  Student Admit Form
+                </Text>
+              </div>
+              <div className="bg-white-A700 flex flex-col items-center justify-start mt-[59px] p-7 sm:px-5 w-full">
+                <div className="flex flex-col items-start justify-start mb-0.5 mt-[29px] w-full">
+                  <Text
+                    className="md:text-2xl sm:text-[22px] text-[26px] text-black-900"
+                    size="txtPoppinsMedium26"
+                  >
+                    <>Add New Students</>
+                  </Text>
+                  <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start mt-[21px] w-[91%] md:w-full">
+                    <Text
+                      className="text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Name *
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[202px] md:mt-0 mt-[3px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Gender *
+                    </Text>
+                    <Text
+                      className="mb-[3px] md:ml-[0] ml-[199px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Class *
+                    </Text>
+                    <Text
+                      className="mb-0.5 md:ml-[0] ml-[200px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Date Of Birth *
+                    </Text>
+                  </div>
+                  <div className="flex sm:flex-col flex-row sm:gap-10 items-start justify-between mt-1 w-full">
+                    <Input
+                      name="rectangleThirtyFive"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex sm:flex-1 h-[49px] sm:mt-0 mt-1 sm:w-full"
+                    ></Input>
+                    <Input
+                      name="groupThirtyEight"
+                      placeholder="Please Select Gender"
+                      className="leading-[normal] p-0 placeholder:text-gray-600 text-[13px] text-left w-full"
+                      wrapClassName="flex sm:flex-1 mb-1 sm:w-full"
+                      suffix={
+                        <Img
+                          className="h-6 ml-[33px] my-auto"
+                          src="images/img_arrowdropdown.svg"
+                          alt="arrow_drop_down"
+                        />
+                      }
+                      size="lg"
+                    ></Input>
+                    <Input
+                      name="groupThirtyFive"
+                      placeholder="Please Select Class"
+                      className="leading-[normal] p-0 placeholder:text-gray-600 text-[13px] text-left w-full"
+                      wrapClassName="flex sm:flex-1 mb-1 sm:w-full"
+                      suffix={
+                        <Img
+                          className="h-6 ml-[35px] my-auto"
+                          src="images/img_arrowdropdown.svg"
+                          alt="arrow_drop_down"
+                        />
+                      }
+                      size="lg"
+                    ></Input>
+                    <Input
+                      name="groupThirtyFour"
+                      placeholder="dd/mm/yy"
+                      className="!placeholder:text-gray-700_01 !text-gray-700_01 leading-[normal] p-0 text-[13px] text-left w-full"
+                      wrapClassName="flex sm:flex-1 mb-1 sm:w-full"
+                      suffix={
+                        <Img
+                          className="mt-px mb-auto h-[19px] ml-[35px]"
+                          src="images/img_calendar.svg"
+                          alt="calendar"
+                        />
+                      }
+                      size="md"
+                    ></Input>
+                  </div>
+                  <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start mt-8 w-[68%] md:w-full">
+                    <Text
+                      className="mb-0.5 text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Blood group *
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[148px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Religion *
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[197px] md:mt-0 mt-0.5 text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Admission Date *
+                    </Text>
+                  </div>
+                  <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start w-[74%] md:w-full">
+                    <Input
+                      name="rectangleFiftyEight"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex h-[49px] w-[29%] md:w-full"
+                    ></Input>
+                    <Input
+                      name="groupThirtySix"
+                      placeholder="Please Select Religion"
+                      className="leading-[normal] p-0 placeholder:text-gray-600 text-[13px] text-left w-full"
+                      wrapClassName="flex md:ml-[0] ml-[54px] w-[29%] md:w-full"
+                      suffix={
+                        <Img
+                          className="h-6 ml-8 my-auto"
+                          src="images/img_arrowdropdown.svg"
+                          alt="arrow_drop_down"
+                        />
+                      }
+                      size="lg"
+                    ></Input>
+                    <Input
+                      name="groupThirtySeven"
+                      placeholder="dd/mm/yy"
+                      className="!placeholder:text-gray-700_01 !text-gray-700_01 leading-[normal] p-0 text-[13px] text-left w-full"
+                      wrapClassName="flex ml-16 md:ml-[0] w-[29%] md:w-full"
+                      suffix={
+                        <Img
+                          className="h-[19px] ml-[35px] my-px"
+                          src="images/img_calendar.svg"
+                          alt="calendar"
+                        />
+                      }
+                      size="md"
+                    ></Input>
+                  </div>
+                  <Text
+                    className="md:ml-[0] ml-[5px] mt-[38px] md:text-2xl sm:text-[22px] text-[26px] text-black-900"
+                    size="txtPoppinsMedium26"
+                  >
+                    Add New Parent{" "}
+                  </Text>
+                  <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start mt-3.5 w-[85%] md:w-full">
+                    <Text
+                      className="mb-1 text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Father’s Name{" "}
+                    </Text>
+                    <Text
+                      className="mb-1 md:ml-[0] ml-[141px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Mother’s Name{" "}
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[145px] md:mt-0 mt-1 text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Email{" "}
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[222px] md:mt-0 mt-1 text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Phone
+                    </Text>
+                  </div>
+                  <div className="flex sm:flex-col flex-row sm:gap-10 items-center justify-between mt-1.5 w-full">
+                    <Input
+                      name="rectangleThirtyFive_One"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex sm:flex-1 h-[49px] sm:w-full"
+                    ></Input>
+                    <Input
+                      name="rectangleSixtyFive"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex sm:flex-1 h-[49px] sm:w-full"
+                    ></Input>
+                    <Input
+                      name="rectangleSixty"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex sm:flex-1 h-[49px] sm:w-full"
+                    ></Input>
+                    <Input
+                      name="rectangleSixtyOne"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex sm:flex-1 h-[49px] sm:w-full"
+                    ></Input>
+                  </div>
+                  <div className="flex md:flex-col flex-row md:gap-5 items-center justify-start md:ml-[0] ml-[5px] mt-6 w-[61%] md:w-full">
+                    <Text
+                      className="text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Father’s Occupation{" "}
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[88px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Address *
+                    </Text>
+                    <Text
+                      className="md:ml-[0] ml-[190px] text-black-900 text-lg"
+                      size="txtPoppinsRegular18Black900"
+                    >
+                      Religion *
+                    </Text>
+                  </div>
+                  <div className="flex md:flex-col flex-row md:gap-5 items-start justify-start md:ml-[0] ml-[5px] w-[74%] md:w-full">
+                    <Input
+                      name="rectangleSixtyTwo"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex h-[49px] md:mt-0 mt-[3px] w-[29%] md:w-full"
+                    ></Input>
+                    <Input
+                      name="rectangleSixtyThree"
+                      placeholder=""
+                      className="p-0 w-full"
+                      wrapClassName="flex h-[49px] md:ml-[0] ml-[54px] md:mt-0 mt-[3px] w-[29%] md:w-full"
+                    ></Input>
+                    <Input
+                      name="groupThirtyThree"
+                      placeholder="Please Select Religion"
+                      className="leading-[normal] p-0 placeholder:text-gray-600 text-[13px] text-left w-full"
+                      wrapClassName="flex mb-[3px] md:ml-[0] ml-[60px] w-[29%] md:w-full"
+                      suffix={
+                        <Img
+                          className="h-6 ml-8 my-auto"
+                          src="images/img_arrowdropdown.svg"
+                          alt="arrow_drop_down"
+                        />
+                      }
+                      size="lg"
+                    ></Input>
+                  </div>
+                  <div className="flex md:flex-col flex-row gap-[42px] items-center justify-start mt-[29px] w-[63%] md:w-full">
+                    <div className="bg-gray-300 h-[280px] rounded-[50%] w-[280px]"></div>
+                    <div className="flex flex-col gap-[7px] items-start justify-start w-[51%] md:w-full">
+                      <Text
+                        className="text-black-900 text-lg"
+                        size="txtPoppinsRegular18Black900"
+                      >
+                        Upload Student Photo (150px X 150px)
+                      </Text>
+                      <div className="flex flex-row gap-[9px] items-center justify-start w-[72%] md:w-full">
+                        <Button
+                          className="cursor-pointer leading-[normal] min-w-[122px] outline outline-[1px] outline-black-900 text-base text-center"
+                          shape="square"
+                          color="gray_300"
+                          size="xs"
+                        >
+                          Choose File
+                        </Button>
+                        <Text
+                          className="text-[15px] text-black-900"
+                          size="txtPoppinsRegular15"
+                        >
+                          No file chosen
+                        </Text>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="flex flex-row gap-3.5 items-center justify-start mt-10 w-[33%] md:w-full">
+                    <Button className="cursor-pointer font-semibold leading-[normal] min-w-[162px] rounded-[5px] text-center text-xl">
+                      Save
+                    </Button>
+                    <Button
+                      className="cursor-pointer font-semibold leading-[normal] min-w-[162px] rounded-[5px] text-center text-xl"
+                      color="indigo_900"
+                    >
+                      Reset
+                    </Button>
+                  </div>
+                </div>
+              </div>
+              <Text
+                className="mt-[67px] text-black-900 text-sm"
+                size="txtPoppinsMedium14Black900"
+              >
+                <span className="text-black-900_63 font-poppins text-left font-medium">
+                  © Copyrights{" "}
+                </span>
+                <span className="text-black-900 font-poppins text-left font-medium">
+                  firmfoundation{" "}
+                </span>
+                <span className="text-black-900_63 font-poppins text-left font-medium">
+                  2021. All rights reserved
+                </span>
+              </Text>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default STUDENTSADDSTUDENTOnePage;
